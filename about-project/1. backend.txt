@@ -17,3 +17,12 @@
   * OR we can run directly on terminal like this way: nodemon server.js
 
 6. Access dotenv file inside server.js file => const dotenv = require('dotenv').config();
+
+7. Creating these folders inside server folder
+        - controllers
+
+        - models:
+              ► models provide clean interface to interact with your mongodb database through mongoose library
+              ► මෙතනදි අපි කරන්නේ, database එකේ data store විය යුතු document structure එකේ skeleton එක create කරන එක 
+
+        - routes
