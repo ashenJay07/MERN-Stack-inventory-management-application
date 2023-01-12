@@ -1,0 +1,5 @@
+1. Full-stack project එකක main folders දෙකක් තියෙනවා
+        a) frontend එක build කරන 'client' folder එක => main file === index.js
+        b) backend එක build කරන 'server' folder එක  => main file === server.js
+
+2. සාමාන්‍යයෙන් වෙන්නේ backend එක create කරලා ඒකට frontend එක create කරන එක 
