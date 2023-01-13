@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema(
   {
@@ -20,7 +21,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Please add a password'],
       minLength: [5, 'Password must be up to 5 characters'],
-      maxLength: [25, 'Password must not be more than 23 characters'],
+      // maxLength: [50, 'Password must not be more than 23 characters'],
     },
     photo: {
       type: String,
@@ -41,10 +42,21 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// can't use arrow function
+userSchema.pre('save', async function (next) {
+  if (!this.isModified('password')) {
+    return next();
+  }
+
+  // Encrypt password
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(this.password, salt);
+  this.password = hashedPassword;
+  next();
+});
+
 // Accessing Schema
 const User = mongoose.model('User', userSchema);
 
 // Adding created model to module's exports object
 module.exports = User;
-
-console.log(module);

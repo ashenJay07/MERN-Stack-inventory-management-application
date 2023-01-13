@@ -5,7 +5,7 @@
 3. package.json file එකේ "main" change 'index.js' to => 'server.js'
       - OR මුලින්ම server.js file එක create කරලා පස්සේ package.json file එක create කර ගැනීම (automatically "main" property එක update වේ)
 
-4. npm i express mongoose cors dotenv body-parser
+4. npm i express mongoose cors dotenv body-parser express-async-handler bcryptjs jsonwebtoken cookie-parser
 
 5. update script property in package.json
 
@@ -18,11 +18,19 @@
 
 6. Access dotenv file inside server.js file => const dotenv = require('dotenv').config();
 
-7. Creating these folders inside server folder
-        - controllers
-
+7. Creating these folders inside 'server' folder
+        
         - models:
               ► models provide clean interface to interact with your mongodb database through mongoose library
               ► මෙතනදි අපි කරන්නේ, database එකේ data store විය යුතු document structure එකේ skeleton එක create කරන එක 
 
-        - routes
+        - routes:
+              ► used to create routes 
+              ► 'server.js' file එක ඇතුළේ routes ඔක්කොම create කරාම code එක complex වෙන නිසාත්, code consistency එක 
+                පවත්වා ගැනීමටත් routes වෙනම folder එකක create කරනු ලබයි
+
+        - controllers:
+              ► routes වලට call කරාම execute විය යුතු functions define කරනු ලබයි
+
+
+8. npm i nodemailer => used to send email
